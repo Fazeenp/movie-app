@@ -80,6 +80,12 @@ function Home() {
     return (
         <div className="bg-[#0f0c29] text-white min-h-screen relative">
             {/* Floating Search Bar */}
+            {searchTerm!='' && <button
+            onClick={() => window.location.reload()}
+            className="absolute top-6 left-4 bg-transparent text-white px-3 py-1 rounded shadow cursor-pointer transition-all z-50 "
+            >
+            ← Back
+            </button>}
             <div className="absolute top-6 left-1/2 transform -translate-x-1/2 z-50 w-full max-w-2xl px-4">
                 <Search searchTerm={searchTerm} setSearchTerm={setSearchTerm} />
             </div>
@@ -89,7 +95,7 @@ function Home() {
                 <HeroSection />
             )}
 
-            {trendingMovies.length > 0 && (
+            {searchTerm === '' && trendingMovies.length > 0 && (
                 <section className="py-10 px-4 sm:px-10 mt-20">
                     <div className="w-full max-w-6xl mx-auto">
                         <h2 className="text-2xl sm:text-3xl font-bold mb-6 border-b border-white/10 pb-2">
