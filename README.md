@@ -3,7 +3,7 @@
 
 **CineArchive** is a movie discovery and trending tracking web application. It allows users to search for movies in real-time using the TMDb API and view the most popular and trending titles. It features a modern, responsive UI built with React and Tailwind CSS, and uses Appwrite for backend services.
 
-**Live Demo**: [https://cinearchive.vercel.app](https://cinearchive.vercel.app)
+**Live Demo**: [https://cinearchive.vercel.app](https://cinearchive-movie-app.vercel.app/)
 
 ---
 
