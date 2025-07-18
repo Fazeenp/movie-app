@@ -1,4 +1,3 @@
-// HeroSection.jsx
 import React, { useEffect, useState } from "react";
 import axios from "axios";
 import { motion } from "framer-motion";
@@ -6,6 +5,7 @@ import { useNavigate } from "react-router-dom";
 
 const API_KEY = import.meta.env.VITE_TMDB_API_KEY;
 
+// Axios config for TMDB API
 const API_OPTIONS = {
   method: "GET",
   headers: {
@@ -27,7 +27,8 @@ const HeroSection = () => {
           "https://api.themoviedb.org/3/trending/movie/day",
           API_OPTIONS
         );
-        const topMovie = res.data.results[0];
+
+        const topMovie = res.data.results[0]; // Get top trending movie
         setMovie(topMovie);
 
         const path = topMovie?.backdrop_path || topMovie?.poster_path;
@@ -52,9 +53,11 @@ const HeroSection = () => {
       className="relative h-screen w-full bg-cover bg-center transition-all duration-700"
       style={{ backgroundImage: bgImage ? `url(${bgImage})` : "none" }}
     >
+      {/* Gradient overlay for better text readability */}
       <div className="absolute inset-0 bg-gradient-to-r from-black/90 via-black/60 to-transparent z-10" />
 
       <div className="relative z-20 h-full flex flex-col md:flex-row items-center justify-center px-6 md:px-16 gap-8 text-white">
+        {/* Poster image for larger screens */}
         {!loading && movie?.poster_path && (
           <motion.img
             initial={{ opacity: 0, x: -40 }}
@@ -79,9 +82,7 @@ const HeroSection = () => {
           <p className="mt-4 text-lg md:text-xl text-gray-300">
             {loading
               ? "Fetching today's top movie..."
-              : `${movie?.release_date?.slice(0, 4) || "N/A"} • ⭐ ${
-                  movie?.vote_average?.toFixed(1) || "N/A"
-                }`}
+              : `${movie?.release_date?.slice(0, 4) || "N/A"} • ⭐ ${movie?.vote_average?.toFixed(1) || "N/A"}`}
           </p>
 
           <p className="mt-3 text-sm md:text-base text-gray-400 line-clamp-3">
@@ -89,6 +90,7 @@ const HeroSection = () => {
               "Explore trending movies and discover your next favorite watch."}
           </p>
 
+          {/* Navigate to trailer page */}
           <motion.button
             whileHover={{ scale: 1.05 }}
             whileTap={{ scale: 0.95 }}
