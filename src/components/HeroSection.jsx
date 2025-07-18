@@ -76,7 +76,7 @@ const HeroSection = () => {
           className="max-w-xl text-center md:text-left"
         >
           <h1 className="text-4xl md:text-6xl font-extrabold leading-tight drop-shadow-md">
-            {loading ? "Loading..." : movie?.title || "CineScope"}
+            {loading ? "Loading..." : movie?.title || "CineArchive"}
           </h1>
 
           <p className="mt-4 text-lg md:text-xl text-gray-300">
